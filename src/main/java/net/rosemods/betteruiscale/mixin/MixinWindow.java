@@ -1,11 +1,11 @@
 package net.rosemods.betteruiscale.mixin;
 
-import com.mojang.blaze3d.platform.Window;
+import net.minecraft.client.MainWindow;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(Window.class)
+@Mixin(MainWindow.class)
 public class MixinWindow {
     @Shadow
     private int framebufferWidth;
@@ -14,20 +14,20 @@ public class MixinWindow {
     private int framebufferHeight;
 
     @Shadow
-	private double guiScale;
+	private double guiScaleFactor;
 
     @Shadow
-	private int guiScaledWidth;
+	private int scaledWidth;
 
     @Shadow
-	private int guiScaledHeight;
+	private int scaledHeight;
 
     /**
      * @author Rose
 	 * @reason Modifies gui scaling
      */
     @Overwrite
-    public int calculateScale(int guiScale, boolean forceUnicodeFont) {
+    public int calcGuiScale(int guiScale, boolean forceUnicodeFont) {
 		int i;
 		for(i = 1; i != guiScale && i < this.framebufferWidth && i < this.framebufferHeight && this.framebufferWidth / (i + 1) >= 40 && this.framebufferHeight / (i + 1) >= 30; ++i) {
 		}
@@ -44,14 +44,14 @@ public class MixinWindow {
 	 * @reason Modifies gui scaling
 	 */
 	@Overwrite
-	public void setGuiScale(double guiScale) {
-		if(guiScale > 2) guiScale = 1.5 * (0.3 + Math.log10(guiScale));
-		else guiScale = 1 + (guiScale * 0.075);
+	public void setGuiScale(double guiScaleFactor) {
+		if(guiScaleFactor > 2) guiScaleFactor = 1.5 * (0.3 + Math.log10(guiScaleFactor));
+		else guiScaleFactor = 1 + (guiScaleFactor * 0.075);
 		//scaleFactor = (scaleFactor + 3) / 4;
-		this.guiScale = guiScale;
-		int i = (int)((double)this.framebufferWidth / guiScale);
-		this.guiScaledWidth = (double)this.framebufferWidth / guiScale > (double)i ? i + 1 : i;
-		int j = (int)((double)this.framebufferHeight / guiScale);
-		this.guiScaledHeight = (double)this.framebufferHeight / guiScale > (double)j ? j + 1 : j;
+		this.guiScaleFactor = guiScaleFactor;
+		int i = (int)((double)this.framebufferWidth / guiScaleFactor);
+		this.scaledWidth = (double)this.framebufferWidth / guiScaleFactor > (double)i ? i + 1 : i;
+		int j = (int)((double)this.framebufferHeight / guiScaleFactor);
+		this.scaledHeight = (double)this.framebufferHeight / guiScaleFactor > (double)j ? j + 1 : j;
 	}
 }

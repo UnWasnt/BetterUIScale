@@ -1,5 +1,5 @@
 plugins {
-	id 'net.minecraftforge.gradle' version '6.0.29'
+	id 'net.minecraftforge.gradle' version '5.1+'
 	id 'org.spongepowered.mixin' version '0.7.+'
 	id 'maven-publish'
 }
@@ -20,7 +20,7 @@ minecraft {
 	//
 	// Use non-default mappings at your own risk. They may not always work.
 	// Simply re-run your setup task after changing the mappings to update your workspace.
-	mappings channel: 'official', version: '1.17.1'
+	mappings channel: "snapshot", version: '20210309-1.16.5'
 
 	// accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -108,7 +108,7 @@ repositories {
 
 dependencies {
 	// To change the versions see the gradle.properties file
-	minecraft "net.minecraftforge:forge:1.17.1-37.1.1"
+	minecraft "net.minecraftforge:forge:1.16.5-36.2.39"
 
 	// Apply Mixin AP
 	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

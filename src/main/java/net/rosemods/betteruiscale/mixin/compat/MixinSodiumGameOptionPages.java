@@ -1,11 +1,11 @@
-package net.rosemods.betteruiscale.mixin.compat;
+/*package net.rosemods.betteruiscale.mixin.compat;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-
+// Currently still using mojang mappings, was not translated for 1.16.5 forge backport
 @Pseudo
 @Mixin(targets = "me.jellysquid.mods.sodium.client.gui.SodiumGameOptionPages", remap = false)
 public class MixinSodiumGameOptionPages {
@@ -16,3 +16,4 @@ public class MixinSodiumGameOptionPages {
         return 30;
     }
 }
+*/

@@ -1,6 +1,6 @@
 modLoader="javafml"
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[37,)"
+loaderVersion="[36,)"
 issueTrackerURL=""
 license="CC0 1.0 Universal"
 [[mods]]
@@ -19,17 +19,3 @@ description='''
 Adds incremental UI scaling to Minecraft!
 Ported to forge.'''
 mixins="betteruiscale.mixins.json"
-
-[[dependencies.betteruiscale]]
-modId = "minecraft"
-versionRange = "[1.16.5,)"
-mandatory = true
-side = "BOTH"
-ordering = "NONE"
-
-[[dependencies.betteruiscale]]
-modId = "forge"
-versionRange = "[36,)"
-mandatory = true
-side = "BOTH"
-ordering = "NONE"

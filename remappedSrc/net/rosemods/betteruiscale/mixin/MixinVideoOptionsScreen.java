@@ -34,7 +34,7 @@ public class MixinVideoOptionsScreen extends OptionsSubScreen {
     }
 
     @Redirect(method = "mouseClicked(DDI)Z",
-              at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;resizeDisplay()V"))
+              at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;onResolutionChanged()V"))
     private void redirectOnResolutionChanged(Minecraft client) {}
 
     @Inject(method = "mouseReleased(DDI)Z", at = @At("TAIL"))

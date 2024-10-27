@@ -2,17 +2,18 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.rosemods.betteruiscale.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_8",
   "client": [
-    "MixinWindow",
-    "compat.MixinSodiumGameOptionPages"
+    "MixinWindow"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
     "MixinOption",
-    "MixinVideoOptionsScreen",
+    "MixinVideoOptionsScreen"
+  ],
+  "disabled": [
     "compat.MixinSodiumGameOptionPages"
   ]
 }

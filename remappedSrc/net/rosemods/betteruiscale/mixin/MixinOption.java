@@ -12,9 +12,9 @@ import org.spongepowered.asm.mixin.Shadow;
 public class MixinOption implements OptionAccess {
     @Final
     @Shadow
-    private Component caption;
+    private Component key;
 
     public Component getGenericLabel(int value) {
-        return new TranslatableComponent("options.generic_value", new Object[]{this.caption, value});
+        return new TranslatableComponent("options.generic_value", new Object[]{this.key, value});
     }
 }

@@ -4,14 +4,14 @@
   "package": "net.rosemods.betteruiscale.mixin",
   "compatibilityLevel": "JAVA_8",
   "client": [
-    "MixinWindow"
+    "MixinWindow",
+    "MixinVideoOptionsScreen"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
-    "MixinOption",
-    "MixinVideoOptionsScreen"
+    "MixinOption"
   ],
   "disabled": [
     "compat.MixinSodiumGameOptionPages"
